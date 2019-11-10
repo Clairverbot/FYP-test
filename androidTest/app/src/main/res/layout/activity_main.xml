@@ -16,7 +16,6 @@
                 android:layout_marginTop="10dp"
                 android:contentDescription="Speech"
                 android:src="@drawable/logo" />
-dr
         <TextView
                 android:id="@+id/txtText"
                 android:layout_width="wrap_content"

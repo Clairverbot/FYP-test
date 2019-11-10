@@ -5886,6 +5886,11 @@ react-native-branch@~3.0.1:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-3.0.1.tgz#5b07b61cbd290168cd3c3662e017ebe0f356d2ca"
   integrity sha512-vbcYxPZlpF5f39GAEUF8kuGQqCNeD3E6zEdvtOq8oCGZunHXlWlKgAS6dgBKCvsHvXgHuMtpvs39VgOp8DaKig==
 
+react-native-keyevent@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-keyevent/-/react-native-keyevent-0.2.4.tgz#b00628bb26f6d6a799eb852aea09976d4f5d9ee7"
+  integrity sha512-8O94nR22EhjqQAkX5VEcC+G+8W2WkSwPSElM4r/mUYdSO4Nkewf82pJeI9NqaXjj9FG/pWh8vPam465vEYtSvw==
+
 react-native-permissions@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.0.3.tgz#b6da83e5e313e41ba5f70ff2c4567291766b0140"

@@ -6,8 +6,8 @@
  * @flow
  */
 
-import React , { Component }  from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight,BackHandler } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button, TouchableHighlight, BackHandler } from 'react-native';
 import {
   Header,
   LearnMoreLinks,
@@ -16,6 +16,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Voice from 'react-native-voice';
+import HeadphoneDetection from 'react-native-headphone-detection';
 
 import { request, PERMISSIONS } from 'react-native-permissions';
 request(PERMISSIONS.ANDROID.RECORD_AUDIO).then(result => {
@@ -24,6 +25,7 @@ request(PERMISSIONS.ANDROID.RECORD_AUDIO).then(result => {
     BackHandler.exitApp()
   }
 });
+
 
 class App extends Component {
   state = {
@@ -48,7 +50,14 @@ class App extends Component {
   }
 
   componentWillUnmount() {
+
     Voice.destroy().then(Voice.removeAllListeners);
+  }
+  componentDidMount() {
+
+    HeadphoneDetection.isAudioDeviceConnected().then(console.log);
+    // You can also use it as an event listener
+    HeadphoneDetection.addListener(console.log);
   }
 
   onSpeechStart = e => {
@@ -190,7 +199,7 @@ class App extends Component {
         <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
         <TouchableHighlight >
           <Button style={styles.button} onPress={this._startRecognizing}
-          title="presz"
+            title="presz"
           />
         </TouchableHighlight>
         <TouchableHighlight onPress={this._stopRecognizing}>

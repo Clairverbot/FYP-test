@@ -1,7 +1,10 @@
 package com.example.clair.test;
 
+import android.app.Notification;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,11 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        txtText = (TextView) findViewById(R.id.txtText);
-
-        btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
-
+        txtText =  findViewById(R.id.txtText);
+        btnSpeak =findViewById(R.id.btnSpeak);
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -50,7 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+//        IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
+//        MyReceiver r = new MyReceiver();
+//        filter.setPriority(1000);
+//        registerReceiver(r, filter);
 
+        MyReceiver mMediaButtonReceiver = new MyReceiver();
+        IntentFilter mediaFilter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
+        mediaFilter.setPriority(2);
+        registerReceiver(mMediaButtonReceiver, mediaFilter);
     }
 
     @Override

@@ -19,6 +19,7 @@ import Voice from 'react-native-voice';
 import HeadphoneDetection from 'react-native-headphone-detection';
 
 import { request, PERMISSIONS } from 'react-native-permissions';
+import { NativeModulesProxy } from '@unimodules/core';
 request(PERMISSIONS.ANDROID.RECORD_AUDIO).then(result => {
   if (result != "granted") {
     console.log("permission not granted")
@@ -58,6 +59,7 @@ class App extends Component {
     HeadphoneDetection.isAudioDeviceConnected().then(console.log);
     // You can also use it as an event listener
     HeadphoneDetection.addListener(console.log);
+    NativeModulesProxy.
   }
 
   onSpeechStart = e => {
